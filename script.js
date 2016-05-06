@@ -11,7 +11,17 @@ textField.onkeyup = function(){
 };
 
 
+//Function to append textFieldValue into location
+function insertTodo() {
+  var li = document.createElement("li");
+  var content = document.createTextNode(textFieldValue);
+  li.appendChild(content);
+
+  var parentElement = document.getElementById('item_list');
+  parentElement.appendChild(li);
+}
+
 //Action should only be taken upon clicking the button
 createTodoButton.onclick = function() {
-  alert(textFieldValue);
+  insertTodo();
 };
