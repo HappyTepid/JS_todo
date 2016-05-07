@@ -52,6 +52,7 @@ createTodoButton.onclick = function() {
   bottomToTop();
   textField.value = '';
 };
+
 sortButton.onclick = function() {
   reverseSort();
 };
