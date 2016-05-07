@@ -8,7 +8,10 @@ var sortButton = document.getElementById('reverse_sort');
 //Function to append textFieldValue into location
 function insertTodo() {
   var li = document.createElement("li");
-  var content = document.createTextNode(textField.value);
+  var checkbox = document.createElement("INPUT");
+  checkbox.setAttribute("type", "checkbox");
+  var content = document.createTextNode(' '+textField.value);
+  li.appendChild(checkbox);
   li.appendChild(content);
   var parentElement = document.getElementById('item_list');
   parentElement.appendChild(li);
