@@ -1,12 +1,19 @@
 
 //Set the scene, init some variables for the field  button
-
 var textField = document.getElementsByName('new_item')[0];
 var createTodoButton = document.getElementById('create_todo');
+var sortButton = document.getElementById('reverse_sort');
 
 //Get value of textField on keyup
 textField.onkeyup = function(){
+  //alert('HELLO');
   textFieldValue = textField.value;
+  if (event.keyCode == 13) {
+     event.preventDefault();
+     insertTodo();
+     bottomToTop();
+     textField.value = '';
+  }
 };
 
 //Function to append textFieldValue into location
@@ -43,4 +50,8 @@ function reverseSort() {
 createTodoButton.onclick = function() {
   insertTodo();
   bottomToTop();
+  textField.value = '';
+};
+sortButton.onclick = function() {
+  reverseSort();
 };
