@@ -28,6 +28,17 @@ function bottomToTop() {
   parentElement.insertBefore(lastTodo, todoItems[0]);
 }
 
+//Reverse sort order (oldest first/newest first)
+function reverseSort() {
+  var todoCount = document.getElementById('item_list').childElementCount;
+  var parentElement = document.getElementById('item_list');
+  for (i = 0; i < todoCount; i++) {
+    var todoItems = document.getElementById('item_list').children;
+    var lastTodo = todoItems[todoCount-1];
+    parentElement.insertBefore(lastTodo, todoItems[i]);
+  }
+}
+
 //Action should only be taken upon clicking the button
 createTodoButton.onclick = function() {
   insertTodo();
