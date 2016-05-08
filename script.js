@@ -3,6 +3,7 @@
 var textField = document.getElementsByName('new_item')[0];
 var createTodoButton = document.getElementById('create_todo');
 var sortButton = document.getElementById('reverse_sort');
+var todoTally = 0;
 
 //Functions:
 //Function to append textFieldValue into location
@@ -10,11 +11,30 @@ function insertTodo() {
   var li = document.createElement("li");
   var checkbox = document.createElement("INPUT");
   checkbox.setAttribute("type", "checkbox");
+  var checkboxID = todoTally+1;
+  checkbox.setAttribute("id", checkboxID);
   var content = document.createTextNode(' '+textField.value);
   li.appendChild(checkbox);
   li.appendChild(content);
   var parentElement = document.getElementById('item_list');
   parentElement.appendChild(li);
+  todoTally++;
+  armCheckbox();
+}
+//Give those checkboxes a purpose
+function armCheckbox() {
+  var boxNo = todoTally;
+  var checkbox = document.getElementById(boxNo);
+  checkbox.onclick = function() {
+    //evaluate whether the box is checked
+    var boxState = checkbox.checked;
+    if (boxState) {
+      console.log('Box '+boxNo+' checked.');
+    }
+    else {
+      console.log('Box '+boxNo+' unchecked.');
+    }
+  };
 }
 //Re-arrange
 function bottomToTop() {
