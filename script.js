@@ -27,8 +27,7 @@ function armCheckbox() {
   var checkbox = document.getElementById(boxNo);
   checkbox.onclick = function() {
     //evaluate whether the box is checked
-    var boxState = checkbox.checked;
-    if (boxState) {
+    if (checkbox.checked) {
       console.log('Box '+boxNo+' checked.');
     }
     else {
