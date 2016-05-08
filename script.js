@@ -26,12 +26,11 @@ function armCheckbox() {
   var boxNo = todoTally;
   var checkbox = document.getElementById(boxNo);
   checkbox.onclick = function() {
-    //evaluate whether the box is checked
     if (checkbox.checked) {
-      console.log('Box '+boxNo+' checked.');
+      checkbox.parentElement.style.textDecoration = 'line-through';
     }
     else {
-      console.log('Box '+boxNo+' unchecked.');
+      checkbox.parentElement.style.textDecoration = '';
     }
   };
 }
